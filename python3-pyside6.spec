@@ -1,21 +1,21 @@
-# The PySide6 Python wheel ships with private Qt6 libraries, which we need in
-# order to avoid conflicts with the private API of system Qt6 libraries.
-# The auto requires and provides system [1] in RPM will detect these
+# The PySide6 Python wheel ships with private Qt6 libraries included, which we
+# need in order to avoid conflicts with the private API of system Qt 6
+# libraries.  The auto requires and provides system [1] in RPM will detect these
 # private libraries and will do two things:
 #
 # 1. It will add them in the Provides section of the package. This is bad
-#    because other libraries cannot load them. Advertising them means that we
-#    will break other packages that depend on Qt6 libraries.
+#    because other libraries cannot load them. Advertising them therefore means
+#    that we will break other packages that depend on Qt 6 libraries.
 # 2. It will add most of them in the Requires section of the package. This is
 #    bad because in order to satisfy this dependency, RPM will install the
-#    system Qt6 libraries, which are not necessary. Secondly, some of those
-#    libraries may not be available through the system Qt6 libraries, e.g., due
+#    system Qt 6 libraries, which are not necessary. Second, some of those
+#    libraries may not be available through the system Qt 6 libraries, e.g., due
 #    to a newer version.
 #
 # The best way to approach this problem is to exclude any libQt6* library from
 # the Provides / Requires sections [2]. Note that these libraries may still have
 # dependencies to system libraries, so it's important to keep those, and just
-# exclude the libQt6 interdependencies.
+# exclude the libQt6 inter-dependencies.
 #
 # [1]: https://docs.fedoraproject.org/en-US/packaging-guidelines/AutoProvidesAndRequiresFiltering/
 # [2]: https://docs.fedoraproject.org/en-US/packaging-guidelines/AutoProvidesAndRequiresFiltering/#_private_libraries
