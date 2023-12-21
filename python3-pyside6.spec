@@ -29,9 +29,9 @@
 # Package Description
 
 Name:           python3-pyside6
-Version:        6.6.0
+Version:        6.6.1
 Release:        1%{?dist}
-Summary:        Python bindings for Qt 6, including the Qt6 library, backported from the official Python wheels
+Summary:        Python bindings for Qt 6, including the Qt 6 library, backported from the official Python wheels
 License:        LGPL-3.0-only OR (GPL-2.0-only OR GPL-3.0-or-later) AND GPL-2.0-only AND GPL-3.0-only WITH Qt-GPL-exception-1.0
 Source0:         https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-%{version}-cp38-abi3-manylinux_2_28_x86_64.whl
 Source1:         https://download.qt.io/official_releases/QtForPython/pyside6/PySide6_Addons-%{version}-cp38-abi3-manylinux_2_28_x86_64.whl
@@ -51,10 +51,10 @@ provides access to the complete Qt 6.0+ framework.
 
 %prep
 sha256sum -c <<EOF
-d487eab0f9bfc5c9141b474093e16207ff48cd9335e6465a01deb8dff0693fbc  %SOURCE0
-5c56e963b841aeaacbc9ca8ca34df45308818dbd6fc59faa2b5a00a299e9892b  %SOURCE1
-60284641619f964e1cb4d53cf3169d7a385e0378b74edb75610918d2aea1c4e5  %SOURCE2
-456b89fb4b323e0c5002d92e4d346b48bb4e709db801208df8a0d6b4f5efc33d  %SOURCE3
+0a67587c088cb80e90d4ce3023b02466ea858c93a6dc9c4e062b13314e03d464  %SOURCE0
+a0982da4033319667f9df5ed6fa8eff300a88216aec103a1fff6751a172b19a0  %SOURCE1
+c7185616083eab6f42eaed598d97d49fac4f60ae2e7415194140d54f58c2b42c  %SOURCE2
+fb102e4bc210006f0cdd0ce38e1aaaaf792bd871f02a2b3f01d07922c5cf4c59  %SOURCE3
 EOF
 
 %install
@@ -103,5 +103,5 @@ rm %{buildroot}%{python3_sitearch}/PySide6_Essentials-%{version}.dist-info/entry
 %{python3_sitearch}/shiboken6-%{version}.dist-info/
 
 %changelog
-* Thu Dec 21 2023 Alex Pyrgiotis <alex.p@freedom.press> - 6.6.0
+* Thu Dec 21 2023 Alex Pyrgiotis <alex.p@freedom.press> - 6.6.1
   - Backported PySide6 using the latest Python wheel from the Qt website
