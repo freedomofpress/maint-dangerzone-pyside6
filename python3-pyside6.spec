@@ -112,21 +112,12 @@ rm %{buildroot}%{python3_sitearch}/PySide6_Addons-%{version}.dist-info/RECORD
 rm %{buildroot}%{python3_sitearch}/PySide6_Essentials-%{version}.dist-info/RECORD
 rm %{buildroot}%{python3_sitearch}/PySide6_Essentials-%{version}.dist-info/entry_points.txt
 
-# Next versions of PySide6 may introduce extra libraries or binaries, so we make
-# an attempt here to explicitly include just the files we're interested in. If
-# an installed file is not present in this list, the build will fail, and we can
-# look into what new was introduced.
 %files
-%{python3_sitearch}/PySide6/*.{py,pyi,so,so.6.6,typed}
-%{python3_sitearch}/PySide6/__pycache__/
-%{python3_sitearch}/PySide6/Qt/lib/libQt*.{so,so.6,so.56}
-%{python3_sitearch}/PySide6/QtAsyncio/__pycache__/
-%{python3_sitearch}/PySide6/QtAsyncio/*.py
+%{python3_sitearch}/PySide6/
 %{python3_sitearch}/PySide6-%{version}.dist-info/
 %{python3_sitearch}/PySide6_Addons-%{version}.dist-info/
 %{python3_sitearch}/PySide6_Essentials-%{version}.dist-info/
-%{python3_sitearch}/shiboken6/*.{py,pyi,so,so.6.6,typed}
-%{python3_sitearch}/shiboken6/__pycache__/
+%{python3_sitearch}/shiboken6/
 %{python3_sitearch}/shiboken6-%{version}.dist-info/
 
 %changelog
