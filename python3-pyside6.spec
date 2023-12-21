@@ -33,10 +33,10 @@ Version:        6.6.1
 Release:        1%{?dist}
 Summary:        Python bindings for Qt 6, including the Qt 6 library, backported from the official Python wheels
 License:        LGPL-3.0-only OR (GPL-2.0-only OR GPL-3.0-or-later) AND GPL-2.0-only AND GPL-3.0-only WITH Qt-GPL-exception-1.0
-Source0:         https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-%{version}-cp38-abi3-manylinux_2_28_x86_64.whl
-Source1:         https://download.qt.io/official_releases/QtForPython/pyside6/PySide6_Addons-%{version}-cp38-abi3-manylinux_2_28_x86_64.whl
-Source2:         https://download.qt.io/official_releases/QtForPython/pyside6/PySide6_Essentials-%{version}-cp38-abi3-manylinux_2_28_x86_64.whl
-Source3:         https://download.qt.io/official_releases/QtForPython/pyside6/shiboken6-%{version}-cp38-abi3-manylinux_2_28_x86_64.whl
+Source0:        https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-%{version}-cp38-abi3-manylinux_2_28_x86_64.whl
+Source1:        https://download.qt.io/official_releases/QtForPython/pyside6/PySide6_Addons-%{version}-cp38-abi3-manylinux_2_28_x86_64.whl
+Source2:        https://download.qt.io/official_releases/QtForPython/pyside6/PySide6_Essentials-%{version}-cp38-abi3-manylinux_2_28_x86_64.whl
+Source3:        https://download.qt.io/official_releases/QtForPython/pyside6/shiboken6-%{version}-cp38-abi3-manylinux_2_28_x86_64.whl
 
 ################################################################################
 # Package Requirements
