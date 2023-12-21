@@ -25,11 +25,6 @@
 %global __provides_exclude ^(%{_privatelibs})$
 %global __requires_exclude ^(%{_privatelibs})$
 
-# FIXME:: Disable compression to speed up builds:
-# https://stackoverflow.com/questions/9292243/rpmbuild-change-compression-format
-%define _source_payload w0.ufdio
-%define _binary_payload w0.ufdio
-
 ################################################################################
 # Package Description
 
