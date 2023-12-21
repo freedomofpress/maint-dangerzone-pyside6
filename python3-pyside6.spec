@@ -72,14 +72,41 @@ EOF
 # been causing errors anyways, so it's simpler for us to remove them.
 rm -r %{buildroot}/usr/bin/
 rm -r %{buildroot}%{python3_sitearch}/PySide6/{glue,include,scripts,support,typesystems}/
-rm %{buildroot}%{python3_sitearch}/PySide6/{assistant,designer,linguist,lrelease,lupdate,qmlformat,qmllint,qmlls,libpyside6qml.abi3.so.6.6}
-rm -r %{buildroot}%{python3_sitearch}/PySide6/Qt/{libexec,metatypes,plugins,qml,resources,translations}/
-rm %{buildroot}%{python3_sitearch}/PySide6/Qt/lib/libicu*
+rm %{buildroot}%{python3_sitearch}/PySide6/{assistant,designer,linguist,lrelease,lupdate,qmlformat,qmllint,qmlls}
+rm -r %{buildroot}%{python3_sitearch}/PySide6/Qt/{libexec,metatypes,qml,translations}/
+
+# Remove any plugin that is NOT part of the core Qt 6 packages (qt6-qtbase*). We
+# do this to keep the number of our dependencies in check. We originally
+# retrieved this list with:
+#
+#    $ dnf repoquery --list qt6-qtbase* | grep -oP 'plugins/([[:alpha:]]+)' | sort  | uniq
+#    Last metadata expiration check: 0:39:04 ago on Thu Dec 21 16:07:55 2023.
+#    plugins/designer
+#    plugins/egldeviceintegrations
+#    plugins/generic
+#    plugins/iconengines
+#    plugins/imageformats
+#    plugins/networkinformation
+#    plugins/platforminputcontexts
+#    plugins/platforms
+#    plugins/platformthemes
+#    plugins/printsupport
+#    plugins/script
+#    plugins/sqldrivers
+#    plugins/styles
+#    plugins/tls
+#    plugins/xcbglintegrations
+rm -r %{buildroot}%{python3_sitearch}/PySide6/Qt/plugins/{assetimporters,canbus,geometryloaders,geoservices,multimedia,position,qmltooling,renderers,renderplugins,sceneparsers,scxmldatamodel,sensors,texttospeech,wayland-*}
+# SQL Mimer is a proprietary DB for which there are not packages in Fedora, and
+# therefore this library cannot be loaded.
+rm %{buildroot}%{python3_sitearch}/PySide6/Qt/plugins/sqldrivers/libqsqlmimer.so
+
+rm -r %{buildroot}%{python3_sitearch}/shiboken6_generator/
 
 # The entry_points.txt and RECORD files are tainted with references to the files
 # we deleted above. Instead of editing them, we can outright remove them.  These
 # files are missing from Fedora's python3-pyside2 RPM after all, so most
-# probably they don't affect the insstallation.
+# probably they don't affect the installation.
 rm %{buildroot}%{python3_sitearch}/PySide6-%{version}.dist-info/RECORD
 rm %{buildroot}%{python3_sitearch}/PySide6_Addons-%{version}.dist-info/RECORD
 rm %{buildroot}%{python3_sitearch}/PySide6_Essentials-%{version}.dist-info/RECORD
