@@ -1,9 +1,10 @@
 #!/bin/sh
 
+set -e
+
 BASEDIR=$(realpath $(dirname $0))
 
 mkdir -p $BASEDIR/.rpmbuild/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}
-#cp $BASEDIR/python-pyside6.spec $BASEDIR/.rpmbuild/SPECS
 rpmbuild -v --define "_topdir $BASEDIR/.rpmbuild" \
     --undefine=_disable_source_fetch -ba $BASEDIR/python3-pyside6.spec
 
