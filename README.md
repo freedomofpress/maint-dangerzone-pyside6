@@ -32,3 +32,5 @@ You can build source and binary RPM packages with the following commands:
 dnf install -y rpm-build python3-devel
 ./build.sh
 ```
+
+You can also find nightly builds in our GitHub actions page.
