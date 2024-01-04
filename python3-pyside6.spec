@@ -22,7 +22,7 @@
 # [1]: https://docs.fedoraproject.org/en-US/packaging-guidelines/AutoProvidesAndRequiresFiltering/
 # [2]: https://docs.fedoraproject.org/en-US/packaging-guidelines/AutoProvidesAndRequiresFiltering/#_private_libraries
 %global __provides_exclude ^(lib.*\\.so.*)
-%global __requires_exclude ^(.*Qt6.*|.*pyside6.*|.*shiboken6.*)$
+%global __requires_exclude ^(.*Qt6.*|.*pyside6.*|.*shiboken6.*|libicu.*\\.so.*)$
 
 ################################################################################
 # Package Description
