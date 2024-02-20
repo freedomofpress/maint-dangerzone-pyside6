@@ -13,7 +13,7 @@ PYPI_PACKAGES = [
     "shiboken6",
 ]
 WHEEL_TYPE = "cp38-abi3-manylinux_2_28_x86_64.whl"
-EXPECTED_VERSION = "6.6.1"
+EXPECTED_VERSION = "6.6.2"
 
 
 def get_package_info(pkg):
