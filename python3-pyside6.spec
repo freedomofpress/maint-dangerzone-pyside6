@@ -28,7 +28,7 @@
 # Package Description
 
 Name:           python3-pyside6
-Version:        6.6.1
+Version:        6.6.2
 Release:        1%{?dist}
 Summary:        Python bindings for Qt 6, including the Qt 6 library, backported from the official Python wheels
 License:        LGPL-3.0-only OR (GPL-2.0-only OR GPL-3.0-or-later) AND GPL-2.0-only AND GPL-3.0-only WITH Qt-GPL-exception-1.0
@@ -50,10 +50,10 @@ provides access to the complete Qt 6.0+ framework.
 
 %prep
 sha256sum -c <<EOF
-0a67587c088cb80e90d4ce3023b02466ea858c93a6dc9c4e062b13314e03d464  %SOURCE0
-a0982da4033319667f9df5ed6fa8eff300a88216aec103a1fff6751a172b19a0  %SOURCE1
-c7185616083eab6f42eaed598d97d49fac4f60ae2e7415194140d54f58c2b42c  %SOURCE2
-fb102e4bc210006f0cdd0ce38e1aaaaf792bd871f02a2b3f01d07922c5cf4c59  %SOURCE3
+3b6266fb29bab66526f2bbab2a6610f9f47a4df42ae6fb3713cd8329f593a561  %SOURCE0
+cbdb7393de88a916ed1e9bd8407149f911717d1e06aee04119e26042679d8cce  %SOURCE1
+90be2cf1a404f1c62777ccc6898895c864376f1fd68ae9f82f7622522bce5814  %SOURCE2
+9da86622cee5e7201bafe9c5beee3c06d9168c6b8f3e2fac52c1b7df00956bff  %SOURCE3
 EOF
 
 %install
@@ -100,8 +100,6 @@ rm -r %{buildroot}%{python3_sitearch}/PySide6/Qt/plugins/{assetimporters,canbus,
 # therefore this library cannot be loaded.
 rm %{buildroot}%{python3_sitearch}/PySide6/Qt/plugins/sqldrivers/libqsqlmimer.so
 
-rm -r %{buildroot}%{python3_sitearch}/shiboken6_generator/
-
 # The entry_points.txt and RECORD files are tainted with references to the files
 # we deleted above. Instead of editing them, we can outright remove them.  These
 # files are missing from Fedora's python3-pyside2 RPM after all, so most
@@ -120,5 +118,8 @@ rm %{buildroot}%{python3_sitearch}/PySide6_Essentials-%{version}.dist-info/entry
 %{python3_sitearch}/shiboken6-%{version}.dist-info/
 
 %changelog
+* Tue Feb 20 2024 Alex Pyrgiotis <alex.p@freedom.press> - 6.6.2
+  - Packaged PySide6 using the latest Python wheel from the Qt website
+
 * Thu Dec 21 2023 Alex Pyrgiotis <alex.p@freedom.press> - 6.6.1
   - Backported PySide6 using the latest Python wheel from the Qt website
