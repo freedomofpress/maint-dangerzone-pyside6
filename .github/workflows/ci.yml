@@ -16,9 +16,10 @@ jobs:
         include:
           - version: "38"
           - version: "39"
+          - version: "40"
     env:
-      rpm_name: python3-pyside6-6.6.2-1.fc${{matrix.version}}.x86_64.rpm
-      srpm_name: python3-pyside6-6.6.2-1.fc${{matrix.version}}.src.rpm
+      rpm_name: python3-pyside6-6.6.3.1-1.fc${{matrix.version}}.x86_64.rpm
+      srpm_name: python3-pyside6-6.6.3.1-1.fc${{matrix.version}}.src.rpm
     steps:
       - uses: actions/checkout@v3
       - name: Install build dependencies
@@ -39,13 +40,3 @@ jobs:
           path: ".rpmbuild/SRPMS/${{ env.srpm_name }}"
           if-no-files-found: error
           compression-level: 0
-
-  check-updates:
-    name: "Ensure our package does not lag behind the PyPI one"
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install dependencies
-        run: sudo apt-get install -y python3-requests
-      - name: Check if there is a PySide6 update
-        run: ./check_updates.py

@@ -24,6 +24,12 @@ GUI application that uses Qt. We recommend you take a look at the
 we encountered while packaging PySide6, in order to understand the design
 choices in this repo.
 
+> [!IMPORTANT]
+> As of 2024-04-15, this repo will no longer build a PySide6 RPM greater than
+> 6.6.3.1. The reason is that PySide6 6.6.7 [is now available](https://packages.fedoraproject.org/pkgs/python-pyside6/python3-pyside6/fedora-rawhide.html)
+> in Fedora Rawhide, and will [soon be available](https://bugzilla.redhat.com/show_bug.cgi?id=2271325#c4)
+> in the rest of the Fedora releases.
+
 ## Build
 
 You can build source and binary RPM packages with the following commands:
