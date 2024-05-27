@@ -28,19 +28,14 @@
 # Package Description
 
 Name:           python3-pyside6
-Version:        6.6.3.1
+Version:        6.7.1
 Release:        1%{?dist}
 Summary:        Python bindings for Qt 6, including the Qt 6 library, backported from the official Python wheels
 License:        LGPL-3.0-only OR (GPL-2.0-only OR GPL-3.0-or-later) AND GPL-2.0-only AND GPL-3.0-only WITH Qt-GPL-exception-1.0
-# NOTE: For the 6.6.3.1 release, we specifically download the wheels from
-# https://download.qt.io/snapshots/ci/pyside/6.6.3.1/RC2, instead of
-# https://download.qt.io/official_releases/QtForPython/pyside6. The reason is
-# that these wheels are somehow missing from the official page. Still, the
-# hashes match those in PyPI, so this place is as good as any.
-Source0:        https://download.qt.io/snapshots/ci/pyside/6.6.3.1/RC2/PySide6-%{version}-cp38-abi3-manylinux_2_28_x86_64.whl
-Source1:        https://download.qt.io/snapshots/ci/pyside/6.6.3.1/RC2/PySide6_Addons-%{version}-cp38-abi3-manylinux_2_28_x86_64.whl
-Source2:        https://download.qt.io/snapshots/ci/pyside/6.6.3.1/RC2/PySide6_Essentials-%{version}-cp38-abi3-manylinux_2_28_x86_64.whl
-Source3:        https://download.qt.io/snapshots/ci/pyside/6.6.3.1/RC2/shiboken6-%{version}-cp38-abi3-manylinux_2_28_x86_64.whl
+Source0:        https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-%{version}-cp39-abi3-manylinux_2_28_x86_64.whl
+Source1:        https://download.qt.io/official_releases/QtForPython/pyside6/PySide6_Addons-%{version}-cp39-abi3-manylinux_2_28_x86_64.whl
+Source2:        https://download.qt.io/official_releases/QtForPython/pyside6/PySide6_Essentials-%{version}-cp39-abi3-manylinux_2_28_x86_64.whl
+Source3:        https://download.qt.io/official_releases/QtForPython/pyside6/shiboken6-%{version}-cp39-abi3-manylinux_2_28_x86_64.whl
 
 ################################################################################
 # Package Requirements
@@ -55,10 +50,10 @@ provides access to the complete Qt 6.0+ framework.
 
 %prep
 sha256sum -c <<EOF
-35936f06257e5c37ae8993da0cb5a528e5db3ea1fc2bb6b12cdf899a11510966  %SOURCE0
-7373479565e5bd963b9662857c40c20768bc0b5853334e2076a62cb039e91f74  %SOURCE1
-1f41f357ce2384576581e76c9c3df1c4fa5b38e347f0bcd0cae7c5bce42a917c  %SOURCE2
-b1aeff0d79d84ddbdc9970144c1bbc3a52fcb45618d1b33d17d57f99f1246d45  %SOURCE3
+45a539286e3a8afafd3ebc6b3391d587ce86293564ecba3a994e335dc68fe599  %SOURCE0
+e9fbfc31e0de5075ee98d92cdbd7ccd274e4ac25100c890ae5bddfc8804a304c  %SOURCE1
+b2d70dc4376c1b1ff5b2988a428a0ed5a889173ce9a0b56803468063d0ef7c75  %SOURCE2
+6322b7a6232fc93eac0b11489007734438ae1e6213429fd6d7521d04072c2f87  %SOURCE3
 EOF
 
 %install
@@ -123,6 +118,10 @@ rm %{buildroot}%{python3_sitearch}/PySide6_Essentials-%{version}.dist-info/entry
 %{python3_sitearch}/shiboken6-%{version}.dist-info/
 
 %changelog
+* Tue May 27 2024 Alex Pyrgiotis <alex.p@freedom.press> - 6.7.1
+  - Packaged PySide6 6.7.1 using the Python wheel from the Qt website. This
+    is an emergency release, to fix a segfault in Fedora 39+.
+
 * Tue Apr 16 2024 Alex Pyrgiotis <alex.p@freedom.press> - 6.6.3.1
   - Packaged PySide6 6.6.3.1 using the Python wheel from the Qt website. This
     looks like the last FPF release, since PySide6 is already in Fedora Rawhide.
