@@ -14,9 +14,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - version: "38"
           - version: "39"
           - version: "40"
+          - version: "41"
     env:
       rpm_name: python3-pyside6-6.6.3.1-1.fc${{matrix.version}}.x86_64.rpm
       srpm_name: python3-pyside6-6.6.3.1-1.fc${{matrix.version}}.src.rpm
