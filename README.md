@@ -26,9 +26,14 @@ choices in this repo.
 
 > [!IMPORTANT]
 > As of 2024-04-15, this repo will no longer build a PySide6 RPM greater than
-> 6.6.3.1. The reason is that PySide6 6.6.7 [is now available](https://packages.fedoraproject.org/pkgs/python-pyside6/python3-pyside6/fedora-rawhide.html)
+> 6.6.3.1. The reason is that PySide6 6.7.0 [is now available](https://packages.fedoraproject.org/pkgs/python-pyside6/python3-pyside6/fedora-rawhide.html)
 > in Fedora Rawhide, and will [soon be available](https://bugzilla.redhat.com/show_bug.cgi?id=2271325#c4)
 > in the rest of the Fedora releases.
+>
+> **UPDATE:** On 2024-05-05, an update in Fedora's Python3 package triggered a
+> a segfault in the PySide6 package (see [Bugzilla #2279088](https://bugzilla.redhat.com/show_bug.cgi?id=2279088)).
+> Unfortunately, we can't wait for Fedora's PySide6 to reach the stable
+> releases, so we have to package PySide6 6.7.1 ourselves.
 
 ## Build
 
