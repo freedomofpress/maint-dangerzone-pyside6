@@ -118,7 +118,7 @@ rm %{buildroot}%{python3_sitearch}/PySide6_Essentials-%{version}.dist-info/entry
 %{python3_sitearch}/shiboken6-%{version}.dist-info/
 
 %changelog
-* Tue May 27 2024 Alex Pyrgiotis <alex.p@freedom.press> - 6.7.1
+* Mon May 27 2024 Alex Pyrgiotis <alex.p@freedom.press> - 6.7.1
   - Packaged PySide6 6.7.1 using the Python wheel from the Qt website. This
     is an emergency release, to fix a segfault in Fedora 39+.
 
