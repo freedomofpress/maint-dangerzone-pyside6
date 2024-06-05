@@ -24,6 +24,10 @@
 %global __provides_exclude ^(lib.*\\.so.*)
 %global __requires_exclude ^(.*Qt6.*|.*pyside6.*|.*shiboken6.*|libicu.*\\.so.*)$
 
+# Do not build debug info package, since we practically package PySide6 from
+# PyPI. See: https://serverfault.com/a/1101896
+%global debug_package %{nil}
+
 ################################################################################
 # Package Description
 
@@ -118,7 +122,7 @@ rm %{buildroot}%{python3_sitearch}/PySide6_Essentials-%{version}.dist-info/entry
 %{python3_sitearch}/shiboken6-%{version}.dist-info/
 
 %changelog
-* Tue May 27 2024 Alex Pyrgiotis <alex.p@freedom.press> - 6.7.1
+* Mon May 27 2024 Alex Pyrgiotis <alex.p@freedom.press> - 6.7.1
   - Packaged PySide6 6.7.1 using the Python wheel from the Qt website. This
     is an emergency release, to fix a segfault in Fedora 39+.
 
