@@ -16,7 +16,18 @@ jobs:
         include:
           - version: "39"
           - version: "40"
-          - version: "41"
+          # NOTE: Fedora 41 ships with Python 3.13, which is incompatible with
+          # PySide6 6.7.1. On the other hand, the candidate PySide6 package by
+          # Fedora offers a fix [1] for this issue, and at some point should be
+          # offered officially.
+          #
+          # So, given that we have alternatives, we remove Fedora 41 from our CI
+          # tests, and may re-introduce it if an upstream PySide6 version adds
+          # support for Python 3.13.
+          #
+          # [1]: https://src.fedoraproject.org/fork/luk1337/rpms/python-pyside6/c/f9852fa14d755f16c06c9f0247325da62cffdfd0
+          #
+          #- version: "41"
     env:
       rpm_name: python3-pyside6-6.7.1-1.fc${{matrix.version}}.x86_64.rpm
       srpm_name: python3-pyside6-6.7.1-1.fc${{matrix.version}}.src.rpm
