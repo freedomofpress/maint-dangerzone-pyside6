@@ -1,15 +1,10 @@
 name: PySide6 CI
-on:
-  push:
-  pull_request:
-    branches: [ main ]
-  schedule:
-    - cron: '0 0 * * *' # Run every day at 00:00 UTC.
+on: [push, pull_request]
 
 jobs:
   build-package:
     name: "Build the PySide6 package for Fedora ${{matrix.version}}"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     container: fedora:${{ matrix.version }}
     strategy:
       matrix:
