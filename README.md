@@ -1,3 +1,8 @@
+**This repo is archived. Fedora now offers PySide6 packages across all of its
+supported versions. See
+https://github.com/freedomofpress/maint-dangerzone-pyside6/issues/5 for
+details**
+
 # Build instructions for PySide6 RPMs
 
 Most popular distros [do not offer a PySide6 package](https://repology.org/project/python:pyside6/versions).
