@@ -3,8 +3,6 @@ on:
   push:
   pull_request:
     branches: [ main ]
-  schedule:
-    - cron: '0 0 * * *' # Run every day at 00:00 UTC.
 
 jobs:
   build-package:
